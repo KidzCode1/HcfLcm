@@ -21,6 +21,9 @@ namespace HCF_LCM_Calculator
 	public partial class MainWindow : Window
 	{
 		bool loaded;
+		int commonFactorProduct;
+		int list1Product;
+		int list2Product;
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -33,7 +36,7 @@ namespace HCF_LCM_Calculator
 			if (originalNumber == 0)
 				return primes;
 
-			primes.Add(1);
+			//primes.Add(1);
 
 			int testNumber = 2;
 
@@ -56,24 +59,71 @@ namespace HCF_LCM_Calculator
 			return number;
 		}
 
-		private void tbxNumber1_TextChanged(object sender, TextChangedEventArgs e)
+		void FindCommonFactors()
 		{
-			if (!loaded)
-				return;
-			if (int.TryParse(tbxNumber1.Text, out int result))
+			if (int.TryParse(tbxNumber1.Text, out int result1))
 			{
-				lbFactors1.ItemsSource = GetPrimeFactors(result);
+				lbFactors1.ItemsSource = GetPrimeFactors(result1);
 			}
+
+			if (int.TryParse(tbxNumber2.Text, out int result2))
+			{
+				lbFactors2.ItemsSource = GetPrimeFactors(result2);
+			}
+
+
+			List<int> list1 = lbFactors1.ItemsSource as List<int>;
+			if (list1 == null)
+				return;
+
+			List<int> list2 = lbFactors2.ItemsSource as List<int>;
+			if (list2 == null)
+				return;
+
+			List<int> results = new List<int>();
+
+			foreach (int item in list1)
+				if (list2.Contains(item))
+				{
+					results.Add(item);
+					list2.Remove(item);
+				}
+
+			foreach (int item in results)
+			{
+				list1.Remove(item);
+			}
+
+			lbCommonFactors.ItemsSource = results;
+			commonFactorProduct = GetProduct(results);
+			list1Product = GetProduct(list1);
+			list2Product = GetProduct(list2);
+			tbMiddleProduct.Text = $"{commonFactorProduct}";
+			tbLeftProduct.Text = $"{list1Product}";
+			tbRightProduct.Text = $"{list2Product}";
+			tbHCFAnswer.Text = $"HCF = {commonFactorProduct}";
+			tbLCMAnswer.Text = $"LCM = {list1Product} * {commonFactorProduct} * {list2Product} = {commonFactorProduct * list1Product * list2Product}";
+
 		}
 
-		private void tbxNumber2_TextChanged(object sender, TextChangedEventArgs e)
+		int GetProduct(List<int> list)
+		{
+			
+			int answer = 1;
+			foreach (int item in list) // 1, 2 * 3 * 4 * 5.....
+			{
+				answer = answer * item;
+			}
+
+			return answer;
+		}
+
+		private void tbxNumber_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			if (!loaded)
 				return;
-			if (int.TryParse(tbxNumber2.Text, out int result))
-			{
-				lbFactors2.ItemsSource = GetPrimeFactors(result);
-			}
+
+			FindCommonFactors();
 		}
 	}
 }

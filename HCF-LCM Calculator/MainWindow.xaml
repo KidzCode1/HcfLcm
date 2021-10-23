@@ -7,47 +7,50 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Viewbox>
-    <Grid x:Name="Grid1" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="38"/>
-            <ColumnDefinition Width="61"/>
-            <ColumnDefinition Width="19"/>
-            <ColumnDefinition Width="38"/>
-            <ColumnDefinition Width="61"/>
-            <ColumnDefinition Width="38"/>
-            <ColumnDefinition Width="19"/>
-            <ColumnDefinition Width="61"/>
-            <ColumnDefinition Width="38"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="155"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-        <Ellipse Height="255" Width="255" Fill="Cyan" HorizontalAlignment="Left" Opacity="0.3" Grid.RowSpan="3" Grid.ColumnSpan="6" Stroke="Black" StrokeThickness="2" />
-        <Ellipse Height="255" Width="255" Fill="Yellow" HorizontalAlignment="Left" Opacity="0.3" Grid.RowSpan="3" Grid.ColumnSpan="6" Grid.Column="3" Stroke="Black" StrokeThickness="2"/>
+        <Grid x:Name="Grid1" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="38"/>
+                <ColumnDefinition Width="61"/>
+                <ColumnDefinition Width="19"/>
+                <ColumnDefinition Width="38"/>
+                <ColumnDefinition Width="61"/>
+                <ColumnDefinition Width="38"/>
+                <ColumnDefinition Width="19"/>
+                <ColumnDefinition Width="61"/>
+                <ColumnDefinition Width="38"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="155"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Ellipse Height="255" Width="255" Fill="Cyan" HorizontalAlignment="Left" Opacity="0.3" Grid.RowSpan="3" Grid.ColumnSpan="6" Stroke="Black" StrokeThickness="2" />
+            <Ellipse Height="255" Width="255" Fill="Yellow" HorizontalAlignment="Left" Opacity="0.3" Grid.RowSpan="3" Grid.ColumnSpan="6" Grid.Column="3" Stroke="Black" StrokeThickness="2"/>
 
-            <TextBox x:Name="tbxNumber1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="55" TextAlignment="Right" TextChanged="tbxNumber1_TextChanged">
-            3
-        </TextBox>
-        <TextBox x:Name="tbxNumber2" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="55" TextAlignment="Right" TextChanged="tbxNumber2_TextChanged">
-            4
-        </TextBox>
+            <TextBox x:Name="tbxNumber1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="55" TextAlignment="Right" TextChanged="tbxNumber_TextChanged">
+                3
+            </TextBox>
+            <TextBox x:Name="tbxNumber2" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="55" TextAlignment="Right" TextChanged="tbxNumber_TextChanged">
+                4
+            </TextBox>
 
-        <ListBox x:Name="lbFactors1" Grid.Column="1" Grid.Row="1" Width="61">
+            <ListBox x:Name="lbFactors1" Grid.Column="1" Grid.Row="1" Width="61">
 
-        </ListBox>
+            </ListBox>
 
-        <ListBox x:Name="lbFactors2" Grid.Column="7" Grid.Row="1" Width="61">
+            <ListBox x:Name="lbFactors2" Grid.Column="7" Grid.Row="1" Width="61">
 
-        </ListBox>
-        <ListBox x:Name="lbCommonFactors" Grid.Column="4" Grid.Row="1" Width="61">
+            </ListBox>
+            <ListBox x:Name="lbCommonFactors" Grid.Column="4" Grid.Row="1" Width="61">
 
-        </ListBox>
-        <TextBlock x:Name="tbHCFAnswer" Text="HCF = 5" Width="Auto" Height="Auto" Grid.ColumnSpan="9" Grid.Row="3" />
-        <TextBlock x:Name="tbLCMAnswer" Text="LCM = 5" Width="Auto" Height="Auto" Grid.ColumnSpan="9" Grid.Row="4" />
-    </Grid>
+            </ListBox>
+            <TextBlock x:Name="tbHCFAnswer" Text="HCF = 5" Width="Auto" Height="Auto" Grid.ColumnSpan="9" Grid.Row="3" />
+            <TextBlock x:Name="tbLCMAnswer" Text="LCM = 5" Width="Auto" Height="Auto" Grid.ColumnSpan="9" Grid.Row="4" />
+            <TextBlock x:Name="tbMiddleProduct" Text="1" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="4" TextAlignment="Center"/>
+            <TextBlock x:Name="tbLeftProduct" Text="1" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="1" TextAlignment="Center"/>
+            <TextBlock x:Name="tbRightProduct" Text="1" Width="Auto" Height="Auto" Grid.Row="2" Grid.Column="7" TextAlignment="Center"/>
+        </Grid>
     </Viewbox>
 </Window>
